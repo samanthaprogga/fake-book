@@ -36,14 +36,13 @@
   <div class="status-container">
       <div class="profile-info">
           <div class="profile-picture"></div>
+          <div class="user-name">Samantha Progga</div> <!-- Modified -->
       </div>
       <textarea class="status-box" placeholder="What's on your mind?"></textarea>
-      <div class="post-actions">
-          <div>
-              <input type="file" id="fileInput" style="display: none;">
-              <button class="blue-btn choose-picture-btn" onclick="document.getElementById('fileInput').click()">Choose a Picture</button>
-          </div>
-          <button class="blue-btn" onclick="postStatus()">Post</button>
+      <div class="status-actions"> <!-- Modified -->
+          <input type="file" id="fileInput" style="display: none;">
+          <button class="blue-btn choose-picture-btn" onclick="document.getElementById('fileInput').click()">Choose a Picture</button>
+          <button class="blue-btn post-btn" onclick="postStatus()">Post</button> <!-- Modified -->
       </div>
       <div id="selectedFileName"></div>
   </div>
@@ -60,4 +59,3 @@
   <script src="./assets/script/index.js"></script>
 </body>
 </html>
-
