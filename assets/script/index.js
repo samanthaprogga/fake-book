@@ -1,11 +1,13 @@
+'use strict';
+
 // Function to post status updates
 function postStatus() {
   const status = document.querySelector('.status-box').value.trim();
   const imgFile = document.getElementById('fileInput').files[0];
 
   if (status === "" && !imgFile) {
-      alert("Please enter some text or choose a picture before posting.");
-      return;
+    alert("Please enter some text or choose a picture before posting.");
+    return;
   }
 
   const postContainer = document.createElement('div');
@@ -14,7 +16,7 @@ function postStatus() {
   // Create header for the post
   const header = document.createElement('div');
   header.classList.add('post-header');
-  
+
   // Add profile picture
   const profilePicture = document.createElement('div');
   profilePicture.classList.add('profile-picture');
@@ -38,22 +40,22 @@ function postStatus() {
 
   // Add status text to post container if available
   if (status !== "") {
-      const statusElement = document.createElement('p');
-      statusElement.textContent = status;
-      postContainer.appendChild(statusElement);
+    const statusElement = document.createElement('p');
+    statusElement.textContent = status;
+    postContainer.appendChild(statusElement);
   }
 
   // Add uploaded image to post container if available
   if (imgFile) {
-      const reader = new FileReader();
-      reader.onload = function(event) {
-          const imgElement = document.createElement('img');
-          imgElement.src = event.target.result;
-          imgElement.alt = "Uploaded Picture";
-          imgElement.style.maxWidth = "100%";
-          postContainer.appendChild(imgElement);
-      };
-      reader.readAsDataURL(imgFile);
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const imgElement = document.createElement('img');
+      imgElement.src = event.target.result;
+      imgElement.alt = "Uploaded Picture";
+      imgElement.style.maxWidth = "100%";
+      postContainer.appendChild(imgElement);
+    };
+    reader.readAsDataURL(imgFile);
   }
 
   // Append post container to the main document body
@@ -71,13 +73,13 @@ function displayUserInfoModal() {
   // Create and append profile information to the modal
   const profileInfo = document.createElement('div');
   profileInfo.innerHTML = `
-      <h2>Profile</h2>
-      <div><strong>Name:</strong> Samantha Progga</div>
-      <div><strong>Username:</strong> samani933d</div>
-      <div><strong>Email:</strong> samanthaprogga@gmail.com</div>
-      <div><strong>Pages:</strong> Hub Centra, coding zone, Dynasty Hub</div>
-      <div><strong>Groups:</strong> Seventeen, xb1</div>
-      <div><strong>Monetization:</strong> Eligible</div>
+    <h2>Profile</h2>
+    <div><strong>Name:</strong> Samantha Progga</div>
+    <div><strong>Username:</strong> samani933d</div>
+    <div><strong>Email:</strong> samanthaprogga@gmail.com</div>
+    <div><strong>Pages:</strong> Hub Centra, coding zone, Dynasty Hub</div>
+    <div><strong>Groups:</strong> Seventeen, xb1</div>
+    <div><strong>Monetization:</strong> Eligible</div>
   `;
   userInfoForm.appendChild(profileInfo);
 
@@ -85,8 +87,18 @@ function displayUserInfoModal() {
   modal.style.display = 'block';
 }
 
+// Function to close the modal
+function closeModal() {
+  const modal = document.getElementById('modal');
+  modal.style.display = 'none';
+}
+
 // Attach event listener to the "My Profile" button
-document.getElementById('myProfileBtn').addEventListener('click', displayUserInfoModal);
+document.querySelector('.user-info').addEventListener('click', displayUserInfoModal);
+
+// Attach event listener to the close button in the modal
+document.getElementById('closeModal').addEventListener('click', closeModal);
 
 // Attach event listener to the "Post" button
 document.querySelector('.status-container button').addEventListener('click', postStatus);
+
