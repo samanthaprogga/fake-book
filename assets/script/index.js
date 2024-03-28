@@ -101,4 +101,3 @@ document.getElementById('closeModal').addEventListener('click', closeModal);
 
 // Attach event listener to the "Post" button
 document.querySelector('.status-container button').addEventListener('click', postStatus);
-
