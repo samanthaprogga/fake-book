@@ -18,7 +18,7 @@
 <body>
   <div class="header">
       <div class="header-left">
-          <h1>Facebook</h1>
+          <h1>Fakebook</h1>
       </div>
       <div class="header-middle">
           <button class="header-btn">Friends</button>
@@ -28,7 +28,9 @@
           <button class="header-btn">Settings</button>
       </div>
       <div class="header-right">
-          <button id="myProfileBtn" class="header-btn">My Profile</button>
+          <div class="user">
+              <i class="fa-solid fa-user user-info"></i>
+          </div>
       </div>
   </div>
   <div class="status-container">
@@ -36,12 +38,13 @@
           <div class="profile-picture"></div>
       </div>
       <textarea class="status-box" placeholder="What's on your mind?"></textarea>
-      <div>
-          <input type="file" id="fileInput" style="display: none;">
-          <button class="blue-btn choose-picture-btn" onclick="document.getElementById('fileInput').click()">Choose a Picture</button>
+      <div class="post-actions">
+          <div>
+              <input type="file" id="fileInput" style="display: none;">
+              <button class="blue-btn choose-picture-btn" onclick="document.getElementById('fileInput').click()">Choose a Picture</button>
+          </div>
           <button class="blue-btn" onclick="postStatus()">Post</button>
       </div>
-      <!-- Display selected file name -->
       <div id="selectedFileName"></div>
   </div>
   <div id="modal" class="modal">
@@ -52,9 +55,9 @@
           </div>
       </div>
   </div>
-  <!-- Link to your JavaScript files -->
   <script type="module" src="./assets/script/user.js"></script>
   <script type="module" src="./assets/script/subscriber.js"></script>
   <script src="./assets/script/index.js"></script>
 </body>
 </html>
+
